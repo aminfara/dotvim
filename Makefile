@@ -3,6 +3,7 @@ default: help
 
 delete:
 	rm -rf bundle
+	rm -rf backup
 
 neobundle:
 	if [ ! -d bundle/neobundle.vim ]; then \
