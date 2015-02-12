@@ -41,11 +41,9 @@ set laststatus=2                       " always show the status line
 set listchars=tab:▸\ ,trail:·          " hidden characters shown as
 set list                               " show hidden characters
 
-" highlight spell errors
-set spell
-highlight clear SpellBad
-highlight SpellBad gui=undercurl guifg=lightred cterm=underline ctermfg=lightred
-highlight SpellCap gui=undercurl cterm=underline
+set spell                              " highlight spell errors
+set spelllang=en_us
+set spellfile=~/.vim/spell/en.utf-8.add
 
 " behavioral settings
                                        " ignore these files when completing names and in explorer
@@ -62,7 +60,7 @@ set completeopt=menuone,preview        " show popup menu for completion
 let bash_is_sh=1                       " syntax shell files as bash scripts
 " TODO remove as we use filetype indentation
 " set cinoptions=:0,(s,u0,U1,g0,t0       " some indentation options ':h cinoptions' for details
-set modelines=5                        " number of lines to check for vim: directives at the start/end of file
+set modelines=5                        " number of lines to check for Vim: directives at the start/end of file
 "set fixdel                            " fix terminal code for delete (if delete is broken but backspace works)
 set autoindent                         " automatically indent new line
 

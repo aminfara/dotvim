@@ -23,5 +23,6 @@ You can put your customized configuration in ~/.vimrc.before and ~/.vimrc.after.
 ## Plugins
 
 ## TODO
+* taglist.vim and ctags
 
 

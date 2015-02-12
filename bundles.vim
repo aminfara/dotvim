@@ -23,8 +23,26 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " file tree
 NeoBundle 'scrooloose/nerdtree'
+
 " " file tree and tabs interaction
 NeoBundle 'jistr/vim-nerdtree-tabs'
+
+" commenting
+NeoBundle 'scrooloose/nerdcommenter'
+
+" yank history
+NeoBundle 'YankRing.vim'
+
+" syntax checking on save
+NeoBundle 'scrooloose/syntastic'
+
+" better looking statusline
+NeoBundle 'bling/vim-airline'
+
+" Color Schemes
+NeoBundle 'morhetz/gruvbox'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'tpope/vim-vividchalk'
 
 call neobundle#end()
 
