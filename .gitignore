@@ -3,3 +3,4 @@ sessions
 bundle/
 *.swp
 backup/
+spell/*.spl
