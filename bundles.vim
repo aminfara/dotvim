@@ -33,6 +33,9 @@ NeoBundle 'scrooloose/nerdcommenter'
 " yank history
 NeoBundle 'YankRing.vim'
 
+" Code completion
+NeoBundle 'Shougo/neocomplete.vim'
+
 " syntax checking on save
 NeoBundle 'scrooloose/syntastic'
 

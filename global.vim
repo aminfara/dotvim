@@ -45,6 +45,11 @@ set spell                              " highlight spell errors
 set spelllang=en_us
 set spellfile=~/.vim/spell/en.utf-8.add
 
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
 " behavioral settings
                                        " ignore these files when completing names and in explorer
 set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
@@ -111,6 +116,11 @@ set nofoldenable                       " dont fold by default
 
 let mapleader = ","
 let maplocalleader = "\\"
+
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
 
 " TODO better go to filetype specific configs
 " well TAB is important in Makefile
