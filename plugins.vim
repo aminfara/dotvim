@@ -1,17 +1,12 @@
 "-------------------------------------------------------------------------------
-" NERDTree
-"-------------------------------------------------------------------------------
-let NERDTreeShowHidden=1
-
-"-------------------------------------------------------------------------------
 " Color scheme
 "-------------------------------------------------------------------------------
 
 " Color Scheme settings for 256 color
 if &t_Co == '256'
-  let g:solarized_termcolors= 256
-  let g:gruvbox_termcolors= 256
-  let g:gruvbox_italicize_comments= 0
+    let g:solarized_termcolors= 256
+    let g:gruvbox_termcolors= 256
+    let g:gruvbox_italicize_comments= 0
 endif
 
 set background=dark
@@ -21,8 +16,26 @@ colorscheme gruvbox
 
 " Color Scheme for 16 colors
 if &t_Co == '16'
-  colorscheme default
+    colorscheme default
 endif
+
+"-------------------------------------------------------------------------------
+" NERDTree
+"-------------------------------------------------------------------------------
+let NERDTreeShowHidden=1
+
+"-------------------------------------------------------------------------------
+" tern_for_vim
+"-------------------------------------------------------------------------------
+let g:tern_map_keys=1
+
+"-------------------------------------------------------------------------------
+" Yankring
+"-------------------------------------------------------------------------------
+let g:yankring_replace_n_pkey = '<leader>['
+let g:yankring_replace_n_nkey = '<leader>]'
+nmap <leader>y :YRShow<cr>
+let g:yankring_history_dir = '~/.vim/backup'
 
 "-------------------------------------------------------------------------------
 " Airline
@@ -32,6 +45,18 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 
+"-------------------------------------------------------------------------------
+" Indent Guides
+"-------------------------------------------------------------------------------
+let g:indent_guides_start_level = 2
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_color_change_percent = 5
+
+"-------------------------------------------------------------------------------
+" vim-ruby
+"-------------------------------------------------------------------------------
+let ruby_spellcheck_strings = 1
 "-------------------------------------------------------------------------------
 " NeoComplete
 "-------------------------------------------------------------------------------
@@ -57,12 +82,14 @@ let g:neocomplete#keyword_patterns.perl = '\h\w*->\h\w*\|\h\w*::\w*'
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType ruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby setlocal list
+" Using tern for javascript
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType javascript setlocal omnifunc=tern#Complete
 
 let g:neocomplete#sources#omni#input_patterns = {}
 let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
@@ -84,7 +111,7 @@ let g:neocomplete#same_filetypes._ = '_'
 
 " TODO bring them to bindings
 function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
+    return neocomplete#close_popup() . "\<CR>"
 endfunction
 
 inoremap <expr><C-g>     neocomplete#undo_completion()
@@ -101,7 +128,8 @@ inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
         \ <SID>check_back_space() ? "\<TAB>" :
         \ neocomplete#start_manual_complete()
+
 function! s:check_back_space() "{{{
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}

@@ -24,8 +24,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " file tree
 NeoBundle 'scrooloose/nerdtree'
 
-" " file tree and tabs interaction
+" file tree and tabs interaction
 NeoBundle 'jistr/vim-nerdtree-tabs'
+
+" git integration
+NeoBundle 'tpope/vim-fugitive'
 
 " commenting
 NeoBundle 'scrooloose/nerdcommenter'
@@ -41,6 +44,26 @@ NeoBundle 'scrooloose/syntastic'
 
 " better looking statusline
 NeoBundle 'bling/vim-airline'
+
+" plugin for visually displaying indent levels
+NeoBundle 'Indent-Guides'
+
+" end certain structures automatically, e.g. begin/end etc.
+NeoBundle 'tpope/vim-endwise'
+
+" automatic closing of quotes, parenthesis, brackets, etc.
+NeoBundle 'Raimondi/delimitMate'
+
+""""""""""""""""""""""""""""""""
+" Syntax and language specific "
+""""""""""""""""""""""""""""""""
+" Ruby
+NeoBundle 'vim-ruby/vim-ruby'
+
+" JavaScript
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'marijnh/tern_for_vim', { 'build': { 'others': 'npm install' } }
 
 " Color Schemes
 NeoBundle 'morhetz/gruvbox'
