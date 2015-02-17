@@ -62,6 +62,7 @@ NeoBundle 'vim-ruby/vim-ruby'
 
 " JavaScript
 NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'othree/javascript-libraries-syntax.vim'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'marijnh/tern_for_vim', { 'build': { 'others': 'npm install' } }
 
