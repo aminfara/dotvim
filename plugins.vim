@@ -75,6 +75,9 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#enable_auto_close_preview = 1
 let g:neocomplete#enable_insert_char_pre = 1
 
+" AutoComplPop like behavior.
+let g:neocomplete#enable_auto_select = 1
+
 let g:neocomplete#keyword_patterns = {}
 let g:neocomplete#keyword_patterns._ = '\h\w*'
 let g:neocomplete#keyword_patterns.perl = '\h\w*->\h\w*\|\h\w*::\w*'
@@ -118,6 +121,8 @@ inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+" Close popup by <Space>.
+inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 " <TAB>: completion (use smart TAB instead)
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
