@@ -110,9 +110,8 @@ set foldmethod=syntax
 set foldlevel=9
 set nofoldenable                       " dont fold by default
 
-" TODO remove if irrelevant
 " extended '%' mapping for if/then/else/end etc
-"runtime macros/matchit.vim
+runtime macros/matchit.vim
 
 let mapleader = ","
 let maplocalleader = "\\"
