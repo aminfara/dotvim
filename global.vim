@@ -69,8 +69,8 @@ set modelines=5                        " number of lines to check for Vim: direc
 "set fixdel                            " fix terminal code for delete (if delete is broken but backspace works)
 set autoindent                         " automatically indent new line
 
-set tabstop=4                          " number of spaces in a tab
-set shiftwidth=4                       " number of spaces for indent (0 causes to use tabstop value)
+set tabstop=2                          " number of spaces in a tab
+set shiftwidth=2                       " number of spaces for indent (0 causes to use tabstop value)
 set expandtab                          " expand tabs into spaces
 
 set ttimeoutlen=50                     " fast Esc to normal mode

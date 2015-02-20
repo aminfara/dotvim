@@ -23,6 +23,7 @@ You can put your customized configuration in ~/.vimrc.before and ~/.vimrc.after.
 * for Syntastic
   * rubocop
   * ruby-lint
+  * jshint
 
 NOTE: You need to put .tern-project in your project home for Tern.js JavaScript code Completion.
 

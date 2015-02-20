@@ -57,6 +57,38 @@ let g:indent_guides_color_change_percent = 5
 " vim-ruby
 "-------------------------------------------------------------------------------
 let ruby_spellcheck_strings = 1
+
+"-------------------------------------------------------------------------------
+" Omni completion
+"-------------------------------------------------------------------------------
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Using tern for javascript
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript setlocal omnifunc=tern#Complete
+
+" Ruby syntax
+"-----------------------------------------------------------------------------
+augroup Ruby
+    autocmd!
+    autocmd FileType ruby,eruby nested setlocal cinwords=do
+    autocmd FileType ruby,eruby nested let g:rubycomplete_buffer_loading=1
+    autocmd FileType ruby,eruby nested let g:rubycomplete_rails = 1
+    autocmd FileType ruby,eruby nested let g:rubycomplete_classes_in_global=1
+
+    " Other ruby
+    autocmd BufNewFile,BufRead *.cap      nested setlocal filetype=ruby
+    autocmd BufNewFile,BufRead *.html.erb nested setlocal filetype=eruby.html
+    autocmd BufNewFile,BufRead *.js.erb   nested setlocal filetype=eruby.javascript
+    autocmd BufNewFile,BufRead *.rb.erb   nested setlocal filetype=eruby.ruby
+    autocmd BufNewFile,BufRead *.sh.erb   nested setlocal filetype=eruby.sh
+    autocmd BufNewFile,BufRead *.yml.erb   nested setlocal filetype=eruby.yaml
+    autocmd BufNewFile,BufRead *.txt.erb   nested setlocal filetype=eruby.text
+augroup END
+
 "-------------------------------------------------------------------------------
 " NeoComplete
 "-------------------------------------------------------------------------------
@@ -81,18 +113,6 @@ let g:neocomplete#enable_auto_select = 1
 let g:neocomplete#keyword_patterns = {}
 let g:neocomplete#keyword_patterns._ = '\h\w*'
 let g:neocomplete#keyword_patterns.perl = '\h\w*->\h\w*\|\h\w*::\w*'
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-autocmd FileType ruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby let g:rubycomplete_classes_in_global = 1
-autocmd FileType ruby setlocal list
-" Using tern for javascript
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType javascript setlocal omnifunc=tern#Complete
 
 let g:neocomplete#sources#omni#input_patterns = {}
 let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
@@ -138,3 +158,28 @@ function! s:check_back_space() "{{{
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
+
+"-------------------------------------------------------------------------------
+" Syntastic
+"-------------------------------------------------------------------------------
+let g:syntastic_error_symbol          = '✗✗'
+let g:syntastic_warning_symbol        = '⚠⚠'
+let g:syntastic_style_error_symbol    = '✗'
+let g:syntastic_style_warning_symbol  = '⚠'
+let g:syntastic_auto_loc_list         = 1 " Close the location-list when errors are gone
+let g:syntastic_loc_list_height       = 5
+
+" Ruby syntax checking and lint
+let g:syntastic_ruby_checkers = ['mri']
+if executable('rubocop')
+    let g:syntastic_ruby_checkers = g:syntastic_ruby_checkers + ['rubocop']
+    let g:syntastic_ruby_rubocop_args     = '--display-cop-names'
+endif
+
+if executable('ruby-lint')
+    let g:syntastic_ruby_checkers = g:syntastic_ruby_checkers + ['rubylint']
+endif
+
+if executable('jshint')
+    let g:syntastic_javascript_checkers = ['jshint']
+endif
