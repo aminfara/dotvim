@@ -63,6 +63,11 @@ NeoBundle 'Raimondi/delimitMate'
 " Support for user-defined text objects
 NeoBundle 'kana/vim-textobj-user'
 
+" adds snippet support to Vim
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+
 """"""""""""""""""""""""""""""""
 " Syntax and language specific "
 """"""""""""""""""""""""""""""""
