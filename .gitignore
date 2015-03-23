@@ -4,3 +4,4 @@ bundle/
 *.swp
 backup/
 spell/*.spl
+cache/

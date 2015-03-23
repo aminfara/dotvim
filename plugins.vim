@@ -35,7 +35,7 @@ let g:tern_map_keys=1
 let g:yankring_replace_n_pkey = '<leader>['
 let g:yankring_replace_n_nkey = '<leader>]'
 nmap <leader>y :YRShow<cr>
-let g:yankring_history_dir = '~/.vim/backup'
+let g:yankring_history_dir = '~/.vim/cache'
 
 "-------------------------------------------------------------------------------
 " Airline
@@ -52,6 +52,11 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 5
+
+"-------------------------------------------------------------------------------
+" ctrlp
+"-------------------------------------------------------------------------------
+let g:ctrlp_cache_dir = '~/.vim/cache/ctrlp'
 
 "-------------------------------------------------------------------------------
 " vim-ruby
@@ -167,6 +172,7 @@ endfunction"}}}
 
 " Tell NeoSnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+let  g:neosnippet#data_directory= '~/.vim/cache/neosnippet'
 
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
